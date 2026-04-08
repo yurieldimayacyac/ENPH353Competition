@@ -68,51 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -125,6 +80,29 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -134,6 +112,28 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,109 +168,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/rule
+2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-collision_plugin: 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/rule
+dynamic_reconfigure_generate_messages_lisp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
 
-.PHONY : collision_plugin
+.PHONY : dynamic_reconfigure_generate_messages_lisp
 
 # fast build rule for target.
-collision_plugin/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/build
-.PHONY : collision_plugin/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/rule
-
-# Convenience name for target.
-enph353_gazebo_gennodejs: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/rule
-
-.PHONY : enph353_gazebo_gennodejs
-
-# fast build rule for target.
-enph353_gazebo_gennodejs/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/build
-.PHONY : enph353_gazebo_gennodejs/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-enph353_gazebo_generate_messages_nodejs: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/rule
-
-.PHONY : enph353_gazebo_generate_messages_nodejs
-
-# fast build rule for target.
-enph353_gazebo_generate_messages_nodejs/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/build
-.PHONY : enph353_gazebo_generate_messages_nodejs/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/rule
-
-# Convenience name for target.
-enph353_gazebo_genlisp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/rule
-
-.PHONY : enph353_gazebo_genlisp
-
-# fast build rule for target.
-enph353_gazebo_genlisp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/build
-.PHONY : enph353_gazebo_genlisp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-enph353_gazebo_generate_messages_lisp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/rule
-
-.PHONY : enph353_gazebo_generate_messages_lisp
-
-# fast build rule for target.
-enph353_gazebo_generate_messages_lisp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/build
-.PHONY : enph353_gazebo_generate_messages_lisp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/rule
-
-# Convenience name for target.
-enph353_gazebo_geneus: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/rule
-
-.PHONY : enph353_gazebo_geneus
-
-# fast build rule for target.
-enph353_gazebo_geneus/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/build
-.PHONY : enph353_gazebo_geneus/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-enph353_gazebo_generate_messages_eus: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/rule
-
-.PHONY : enph353_gazebo_generate_messages_eus
-
-# fast build rule for target.
-enph353_gazebo_generate_messages_eus/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/build
-.PHONY : enph353_gazebo_generate_messages_eus/fast
+dynamic_reconfigure_generate_messages_lisp/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
 
 # Convenience name for target.
 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gencpp.dir/rule:
@@ -288,229 +198,19 @@ enph353_gazebo_gencpp/fast:
 .PHONY : enph353_gazebo_gencpp/fast
 
 # Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/rule
+2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/rule
 
 # Convenience name for target.
-tf_generate_messages_py: 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/rule
+enph353_gazebo_geneus: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/rule
 
-.PHONY : tf_generate_messages_py
+.PHONY : enph353_gazebo_geneus
 
 # fast build rule for target.
-tf_generate_messages_py/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/build
-.PHONY : tf_generate_messages_py/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_lisp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/rule
-
-.PHONY : tf_generate_messages_lisp
-
-# fast build rule for target.
-tf_generate_messages_lisp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/build
-.PHONY : tf_generate_messages_lisp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_cpp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/rule
-
-.PHONY : tf_generate_messages_cpp
-
-# fast build rule for target.
-tf_generate_messages_cpp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/build
-.PHONY : tf_generate_messages_cpp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_py: 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule
-
-# Convenience name for target.
-gazebo_ros_gencfg: 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule
-
-.PHONY : gazebo_ros_gencfg
-
-# fast build rule for target.
-gazebo_ros_gencfg/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build
-.PHONY : gazebo_ros_gencfg/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_nodejs: 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_srvs_generate_messages_nodejs
-
-# fast build rule for target.
-std_srvs_generate_messages_nodejs/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
-.PHONY : std_srvs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_nodejs: 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_nodejs
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_nodejs/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-enph353_gazebo_generate_messages_cpp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/rule
-
-.PHONY : enph353_gazebo_generate_messages_cpp
-
-# fast build rule for target.
-enph353_gazebo_generate_messages_cpp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/build
-.PHONY : enph353_gazebo_generate_messages_cpp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_eus: 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-.PHONY : std_srvs_generate_messages_eus
-
-# fast build rule for target.
-std_srvs_generate_messages_eus/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/build
-.PHONY : std_srvs_generate_messages_eus/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_lisp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-.PHONY : std_srvs_generate_messages_lisp
-
-# fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/rule
-
-# Convenience name for target.
-enph353_gazebo_generate_messages_py: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/rule
-
-.PHONY : enph353_gazebo_generate_messages_py
-
-# fast build rule for target.
-enph353_gazebo_generate_messages_py/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/build
-.PHONY : enph353_gazebo_generate_messages_py/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_lisp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_lisp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_lisp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
-.PHONY : trajectory_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_eus: 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
+enph353_gazebo_geneus/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/build
+.PHONY : enph353_gazebo_geneus/fast
 
 # Convenience name for target.
 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
@@ -528,154 +228,34 @@ dynamic_reconfigure_gencfg/fast:
 .PHONY : dynamic_reconfigure_gencfg/fast
 
 # Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-tf_generate_messages_nodejs: 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+dynamic_reconfigure_generate_messages_eus: 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
 
-.PHONY : tf_generate_messages_nodejs
+.PHONY : dynamic_reconfigure_generate_messages_eus
 
 # fast build rule for target.
-tf_generate_messages_nodejs/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/build
-.PHONY : tf_generate_messages_nodejs/fast
+dynamic_reconfigure_generate_messages_eus/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_eus/fast
 
 # Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
+2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule
 
 # Convenience name for target.
-gazebo_msgs_generate_messages_cpp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
+gazebo_ros_gencfg: 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule
 
-.PHONY : gazebo_msgs_generate_messages_cpp
+.PHONY : gazebo_ros_gencfg
 
 # fast build rule for target.
-gazebo_msgs_generate_messages_cpp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build
-.PHONY : gazebo_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-gazebo_msgs_generate_messages_eus: 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule
-
-.PHONY : gazebo_msgs_generate_messages_eus
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_eus/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build
-.PHONY : gazebo_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_cpp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_cpp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_cpp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
-.PHONY : trajectory_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-gazebo_msgs_generate_messages_lisp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : gazebo_msgs_generate_messages_lisp
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_lisp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build
-.PHONY : gazebo_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_eus: 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_eus
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_eus/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
-.PHONY : trajectory_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-gazebo_msgs_generate_messages_nodejs: 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : gazebo_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_nodejs/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build
-.PHONY : gazebo_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_nodejs: 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/rule
-
-# Convenience name for target.
-enph353_gazebo_genpy: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/rule
-
-.PHONY : enph353_gazebo_genpy
-
-# fast build rule for target.
-enph353_gazebo_genpy/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/build
-.PHONY : enph353_gazebo_genpy/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_py: 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_py
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_py/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
-.PHONY : trajectory_msgs_generate_messages_py/fast
+gazebo_ros_gencfg/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build
+.PHONY : gazebo_ros_gencfg/fast
 
 # Convenience name for target.
 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
@@ -708,6 +288,111 @@ enph353_gazebo_generate_messages/fast:
 .PHONY : enph353_gazebo_generate_messages/fast
 
 # Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_py: 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/rule
+
+.PHONY : tf_generate_messages_py
+
+# fast build rule for target.
+tf_generate_messages_py/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/build
+.PHONY : tf_generate_messages_py/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+enph353_gazebo_generate_messages_eus: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/rule
+
+.PHONY : enph353_gazebo_generate_messages_eus
+
+# fast build rule for target.
+enph353_gazebo_generate_messages_eus/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/build
+.PHONY : enph353_gazebo_generate_messages_eus/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_nodejs: 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+
+.PHONY : tf_generate_messages_nodejs
+
+# fast build rule for target.
+tf_generate_messages_nodejs/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/build
+.PHONY : tf_generate_messages_nodejs/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/rule
+
+# Convenience name for target.
+enph353_gazebo_generate_messages_py: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/rule
+
+.PHONY : enph353_gazebo_generate_messages_py
+
+# fast build rule for target.
+enph353_gazebo_generate_messages_py/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/build
+.PHONY : enph353_gazebo_generate_messages_py/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_nodejs: 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_nodejs
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_nodejs/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_cpp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/rule
+
+.PHONY : tf_generate_messages_cpp
+
+# fast build rule for target.
+tf_generate_messages_cpp/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/build
+.PHONY : tf_generate_messages_cpp/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/rule
+
+# Convenience name for target.
+collision_plugin: 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/rule
+
+.PHONY : collision_plugin
+
+# fast build rule for target.
+collision_plugin/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/build
+.PHONY : collision_plugin/fast
+
+# Convenience name for target.
 2025_competition/enph353/enph353_gazebo/CMakeFiles/_enph353_gazebo_generate_messages_check_deps_SubmitPlate.dir/rule:
 	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/_enph353_gazebo_generate_messages_check_deps_SubmitPlate.dir/rule
 .PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/_enph353_gazebo_generate_messages_check_deps_SubmitPlate.dir/rule
@@ -738,36 +423,6 @@ tf_generate_messages_eus/fast:
 .PHONY : tf_generate_messages_eus/fast
 
 # Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_cpp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
-
-# Convenience name for target.
-2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule
-.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-gazebo_msgs_generate_messages_py: 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule
-
-.PHONY : gazebo_msgs_generate_messages_py
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_py/fast:
-	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build
-.PHONY : gazebo_msgs_generate_messages_py/fast
-
-# Convenience name for target.
 2025_competition/enph353/enph353_gazebo/CMakeFiles/_enph353_gazebo_generate_messages_check_deps_GetLegalPlates.dir/rule:
 	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/_enph353_gazebo_generate_messages_check_deps_GetLegalPlates.dir/rule
 .PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/_enph353_gazebo_generate_messages_check_deps_GetLegalPlates.dir/rule
@@ -781,6 +436,126 @@ _enph353_gazebo_generate_messages_check_deps_GetLegalPlates: 2025_competition/en
 _enph353_gazebo_generate_messages_check_deps_GetLegalPlates/fast:
 	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/_enph353_gazebo_generate_messages_check_deps_GetLegalPlates.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/_enph353_gazebo_generate_messages_check_deps_GetLegalPlates.dir/build
 .PHONY : _enph353_gazebo_generate_messages_check_deps_GetLegalPlates/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+enph353_gazebo_generate_messages_cpp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/rule
+
+.PHONY : enph353_gazebo_generate_messages_cpp
+
+# fast build rule for target.
+enph353_gazebo_generate_messages_cpp/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/build
+.PHONY : enph353_gazebo_generate_messages_cpp/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/rule
+
+# Convenience name for target.
+enph353_gazebo_genpy: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/rule
+
+.PHONY : enph353_gazebo_genpy
+
+# fast build rule for target.
+enph353_gazebo_genpy/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/build
+.PHONY : enph353_gazebo_genpy/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/rule
+
+# Convenience name for target.
+enph353_gazebo_genlisp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/rule
+
+.PHONY : enph353_gazebo_genlisp
+
+# fast build rule for target.
+enph353_gazebo_genlisp/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/build
+.PHONY : enph353_gazebo_genlisp/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+enph353_gazebo_generate_messages_lisp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/rule
+
+.PHONY : enph353_gazebo_generate_messages_lisp
+
+# fast build rule for target.
+enph353_gazebo_generate_messages_lisp/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/build
+.PHONY : enph353_gazebo_generate_messages_lisp/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+enph353_gazebo_generate_messages_nodejs: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/rule
+
+.PHONY : enph353_gazebo_generate_messages_nodejs
+
+# fast build rule for target.
+enph353_gazebo_generate_messages_nodejs/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/build
+.PHONY : enph353_gazebo_generate_messages_nodejs/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/rule
+
+# Convenience name for target.
+enph353_gazebo_gennodejs: 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/rule
+
+.PHONY : enph353_gazebo_gennodejs
+
+# fast build rule for target.
+enph353_gazebo_gennodejs/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/build
+.PHONY : enph353_gazebo_gennodejs/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_cpp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_cpp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_cpp/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
+
+# Convenience name for target.
+2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/rule:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/rule
+.PHONY : 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_lisp: 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/rule
+
+.PHONY : tf_generate_messages_lisp
+
+# fast build rule for target.
+tf_generate_messages_lisp/fast:
+	cd /home/fizzer/ros_ws/build && $(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/build
+.PHONY : tf_generate_messages_lisp/fast
 
 src/collision_plugin.o: src/collision_plugin.cpp.o
 
@@ -816,53 +591,38 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install"
-	@echo "... rebuild_cache"
-	@echo "... collision_plugin"
-	@echo "... enph353_gazebo_gennodejs"
-	@echo "... enph353_gazebo_generate_messages_nodejs"
-	@echo "... enph353_gazebo_genlisp"
-	@echo "... enph353_gazebo_generate_messages_lisp"
-	@echo "... enph353_gazebo_geneus"
-	@echo "... enph353_gazebo_generate_messages_eus"
-	@echo "... enph353_gazebo_gencpp"
-	@echo "... tf_generate_messages_py"
-	@echo "... edit_cache"
-	@echo "... tf_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... tf_generate_messages_cpp"
-	@echo "... test"
-	@echo "... std_srvs_generate_messages_py"
-	@echo "... gazebo_ros_gencfg"
-	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... dynamic_reconfigure_generate_messages_nodejs"
-	@echo "... enph353_gazebo_generate_messages_cpp"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... enph353_gazebo_generate_messages_py"
-	@echo "... trajectory_msgs_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
-	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... tf_generate_messages_nodejs"
-	@echo "... gazebo_msgs_generate_messages_cpp"
-	@echo "... gazebo_msgs_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_cpp"
 	@echo "... install/local"
-	@echo "... gazebo_msgs_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_eus"
-	@echo "... gazebo_msgs_generate_messages_nodejs"
-	@echo "... trajectory_msgs_generate_messages_nodejs"
-	@echo "... list_install_components"
-	@echo "... enph353_gazebo_genpy"
-	@echo "... trajectory_msgs_generate_messages_py"
+	@echo "... install"
+	@echo "... dynamic_reconfigure_generate_messages_lisp"
+	@echo "... test"
+	@echo "... enph353_gazebo_gencpp"
+	@echo "... enph353_gazebo_geneus"
+	@echo "... dynamic_reconfigure_gencfg"
+	@echo "... dynamic_reconfigure_generate_messages_eus"
+	@echo "... gazebo_ros_gencfg"
 	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... enph353_gazebo_generate_messages"
+	@echo "... tf_generate_messages_py"
+	@echo "... enph353_gazebo_generate_messages_eus"
+	@echo "... tf_generate_messages_nodejs"
+	@echo "... enph353_gazebo_generate_messages_py"
+	@echo "... dynamic_reconfigure_generate_messages_nodejs"
+	@echo "... tf_generate_messages_cpp"
+	@echo "... collision_plugin"
 	@echo "... _enph353_gazebo_generate_messages_check_deps_SubmitPlate"
 	@echo "... tf_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... gazebo_msgs_generate_messages_py"
 	@echo "... _enph353_gazebo_generate_messages_check_deps_GetLegalPlates"
+	@echo "... enph353_gazebo_generate_messages_cpp"
+	@echo "... list_install_components"
+	@echo "... enph353_gazebo_genpy"
+	@echo "... enph353_gazebo_genlisp"
+	@echo "... enph353_gazebo_generate_messages_lisp"
+	@echo "... enph353_gazebo_generate_messages_nodejs"
+	@echo "... enph353_gazebo_gennodejs"
+	@echo "... dynamic_reconfigure_generate_messages_cpp"
+	@echo "... tf_generate_messages_lisp"
+	@echo "... edit_cache"
+	@echo "... rebuild_cache"
 	@echo "... src/collision_plugin.o"
 	@echo "... src/collision_plugin.i"
 	@echo "... src/collision_plugin.s"

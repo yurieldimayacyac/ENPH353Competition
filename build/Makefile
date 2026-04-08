@@ -636,43 +636,69 @@ enph353_utils_generate_messages_py/fast:
 .PHONY : enph353_utils_generate_messages_py/fast
 
 #=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_py
+# Target rules for targets named std_srvs_generate_messages_py
 
 # Build rule for target.
-sensor_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_py
-.PHONY : sensor_msgs_generate_messages_py
+std_srvs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_py
+.PHONY : std_srvs_generate_messages_py
 
 # fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	$(MAKE) -f my_controller/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make my_controller/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
+std_srvs_generate_messages_py/fast:
+	$(MAKE) -f my_controller/CMakeFiles/std_srvs_generate_messages_py.dir/build.make my_controller/CMakeFiles/std_srvs_generate_messages_py.dir/build
+.PHONY : std_srvs_generate_messages_py/fast
 
 #=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_nodejs
+# Target rules for targets named std_srvs_generate_messages_lisp
 
 # Build rule for target.
-sensor_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_nodejs
-.PHONY : sensor_msgs_generate_messages_nodejs
+std_srvs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_lisp
+.PHONY : std_srvs_generate_messages_lisp
 
 # fast build rule for target.
-sensor_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f my_controller/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make my_controller/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-.PHONY : sensor_msgs_generate_messages_nodejs/fast
+std_srvs_generate_messages_lisp/fast:
+	$(MAKE) -f my_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make my_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
+.PHONY : std_srvs_generate_messages_lisp/fast
 
 #=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_lisp
+# Target rules for targets named std_srvs_generate_messages_eus
 
 # Build rule for target.
-sensor_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_lisp
-.PHONY : sensor_msgs_generate_messages_lisp
+std_srvs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_eus
+.PHONY : std_srvs_generate_messages_eus
 
 # fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f my_controller/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make my_controller/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
+std_srvs_generate_messages_eus/fast:
+	$(MAKE) -f my_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make my_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/build
+.PHONY : std_srvs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_py
+
+# Build rule for target.
+trajectory_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_py
+.PHONY : trajectory_msgs_generate_messages_py
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_py/fast:
+	$(MAKE) -f my_controller/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make my_controller/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
+.PHONY : trajectory_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_cpp
+
+# Build rule for target.
+sensor_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_cpp
+.PHONY : sensor_msgs_generate_messages_cpp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f my_controller/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make my_controller/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+.PHONY : sensor_msgs_generate_messages_cpp/fast
 
 #=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_eus
@@ -688,17 +714,186 @@ sensor_msgs_generate_messages_eus/fast:
 .PHONY : sensor_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_cpp
+# Target rules for targets named gazebo_msgs_generate_messages_cpp
 
 # Build rule for target.
-sensor_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_cpp
-.PHONY : sensor_msgs_generate_messages_cpp
+gazebo_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_cpp
+.PHONY : gazebo_msgs_generate_messages_cpp
 
 # fast build rule for target.
-sensor_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f my_controller/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make my_controller/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-.PHONY : sensor_msgs_generate_messages_cpp/fast
+gazebo_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f my_controller/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build.make my_controller/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build
+.PHONY : gazebo_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named std_srvs_generate_messages_cpp
+
+# Build rule for target.
+std_srvs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_cpp
+.PHONY : std_srvs_generate_messages_cpp
+
+# fast build rule for target.
+std_srvs_generate_messages_cpp/fast:
+	$(MAKE) -f my_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make my_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
+.PHONY : std_srvs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_lisp
+
+# Build rule for target.
+sensor_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_lisp
+.PHONY : sensor_msgs_generate_messages_lisp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f my_controller/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make my_controller/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+.PHONY : sensor_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_nodejs
+
+# Build rule for target.
+sensor_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_nodejs
+.PHONY : sensor_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+sensor_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f my_controller/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make my_controller/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+.PHONY : sensor_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_py
+
+# Build rule for target.
+sensor_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_py
+.PHONY : sensor_msgs_generate_messages_py
+
+# fast build rule for target.
+sensor_msgs_generate_messages_py/fast:
+	$(MAKE) -f my_controller/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make my_controller/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+.PHONY : sensor_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_nodejs
+
+# Build rule for target.
+trajectory_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_nodejs
+.PHONY : trajectory_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f my_controller/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make my_controller/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+.PHONY : trajectory_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named gazebo_msgs_generate_messages_lisp
+
+# Build rule for target.
+gazebo_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_lisp
+.PHONY : gazebo_msgs_generate_messages_lisp
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f my_controller/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make my_controller/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build
+.PHONY : gazebo_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_cpp
+
+# Build rule for target.
+trajectory_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_cpp
+.PHONY : trajectory_msgs_generate_messages_cpp
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f my_controller/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make my_controller/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
+.PHONY : trajectory_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named gazebo_msgs_generate_messages_eus
+
+# Build rule for target.
+gazebo_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_eus
+.PHONY : gazebo_msgs_generate_messages_eus
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_eus/fast:
+	$(MAKE) -f my_controller/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build.make my_controller/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build
+.PHONY : gazebo_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named gazebo_msgs_generate_messages_nodejs
+
+# Build rule for target.
+gazebo_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_nodejs
+.PHONY : gazebo_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f my_controller/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make my_controller/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build
+.PHONY : gazebo_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named gazebo_msgs_generate_messages_py
+
+# Build rule for target.
+gazebo_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_py
+.PHONY : gazebo_msgs_generate_messages_py
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_py/fast:
+	$(MAKE) -f my_controller/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build.make my_controller/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build
+.PHONY : gazebo_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named std_srvs_generate_messages_nodejs
+
+# Build rule for target.
+std_srvs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_nodejs
+.PHONY : std_srvs_generate_messages_nodejs
+
+# fast build rule for target.
+std_srvs_generate_messages_nodejs/fast:
+	$(MAKE) -f my_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make my_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
+.PHONY : std_srvs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_eus
+
+# Build rule for target.
+trajectory_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_eus
+.PHONY : trajectory_msgs_generate_messages_eus
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_eus/fast:
+	$(MAKE) -f my_controller/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make my_controller/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
+.PHONY : trajectory_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_lisp
+
+# Build rule for target.
+trajectory_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_lisp
+.PHONY : trajectory_msgs_generate_messages_lisp
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f my_controller/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make my_controller/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
+.PHONY : trajectory_msgs_generate_messages_lisp/fast
 
 #=============================================================================
 # Target rules for targets named actionlib_generate_messages_nodejs
@@ -961,95 +1156,17 @@ rosgraph_msgs_generate_messages_py/fast:
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 #=============================================================================
-# Target rules for targets named collision_plugin
+# Target rules for targets named dynamic_reconfigure_generate_messages_lisp
 
 # Build rule for target.
-collision_plugin: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 collision_plugin
-.PHONY : collision_plugin
+dynamic_reconfigure_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_lisp
+.PHONY : dynamic_reconfigure_generate_messages_lisp
 
 # fast build rule for target.
-collision_plugin/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/build
-.PHONY : collision_plugin/fast
-
-#=============================================================================
-# Target rules for targets named enph353_gazebo_gennodejs
-
-# Build rule for target.
-enph353_gazebo_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_gennodejs
-.PHONY : enph353_gazebo_gennodejs
-
-# fast build rule for target.
-enph353_gazebo_gennodejs/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/build
-.PHONY : enph353_gazebo_gennodejs/fast
-
-#=============================================================================
-# Target rules for targets named enph353_gazebo_generate_messages_nodejs
-
-# Build rule for target.
-enph353_gazebo_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_generate_messages_nodejs
-.PHONY : enph353_gazebo_generate_messages_nodejs
-
-# fast build rule for target.
-enph353_gazebo_generate_messages_nodejs/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/build
-.PHONY : enph353_gazebo_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named enph353_gazebo_genlisp
-
-# Build rule for target.
-enph353_gazebo_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_genlisp
-.PHONY : enph353_gazebo_genlisp
-
-# fast build rule for target.
-enph353_gazebo_genlisp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/build
-.PHONY : enph353_gazebo_genlisp/fast
-
-#=============================================================================
-# Target rules for targets named enph353_gazebo_generate_messages_lisp
-
-# Build rule for target.
-enph353_gazebo_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_generate_messages_lisp
-.PHONY : enph353_gazebo_generate_messages_lisp
-
-# fast build rule for target.
-enph353_gazebo_generate_messages_lisp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/build
-.PHONY : enph353_gazebo_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named enph353_gazebo_geneus
-
-# Build rule for target.
-enph353_gazebo_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_geneus
-.PHONY : enph353_gazebo_geneus
-
-# fast build rule for target.
-enph353_gazebo_geneus/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/build
-.PHONY : enph353_gazebo_geneus/fast
-
-#=============================================================================
-# Target rules for targets named enph353_gazebo_generate_messages_eus
-
-# Build rule for target.
-enph353_gazebo_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_generate_messages_eus
-.PHONY : enph353_gazebo_generate_messages_eus
-
-# fast build rule for target.
-enph353_gazebo_generate_messages_eus/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/build
-.PHONY : enph353_gazebo_generate_messages_eus/fast
+dynamic_reconfigure_generate_messages_lisp/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
 
 #=============================================================================
 # Target rules for targets named enph353_gazebo_gencpp
@@ -1065,199 +1182,17 @@ enph353_gazebo_gencpp/fast:
 .PHONY : enph353_gazebo_gencpp/fast
 
 #=============================================================================
-# Target rules for targets named tf_generate_messages_py
+# Target rules for targets named enph353_gazebo_geneus
 
 # Build rule for target.
-tf_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_py
-.PHONY : tf_generate_messages_py
+enph353_gazebo_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_geneus
+.PHONY : enph353_gazebo_geneus
 
 # fast build rule for target.
-tf_generate_messages_py/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/build
-.PHONY : tf_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named tf_generate_messages_lisp
-
-# Build rule for target.
-tf_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_lisp
-.PHONY : tf_generate_messages_lisp
-
-# fast build rule for target.
-tf_generate_messages_lisp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/build
-.PHONY : tf_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_cpp
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_cpp
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named tf_generate_messages_cpp
-
-# Build rule for target.
-tf_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_cpp
-.PHONY : tf_generate_messages_cpp
-
-# fast build rule for target.
-tf_generate_messages_cpp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/build
-.PHONY : tf_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_py
-
-# Build rule for target.
-std_srvs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_py
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named gazebo_ros_gencfg
-
-# Build rule for target.
-gazebo_ros_gencfg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_gencfg
-.PHONY : gazebo_ros_gencfg
-
-# fast build rule for target.
-gazebo_ros_gencfg/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build
-.PHONY : gazebo_ros_gencfg/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_nodejs
-
-# Build rule for target.
-std_srvs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_nodejs
-.PHONY : std_srvs_generate_messages_nodejs
-
-# fast build rule for target.
-std_srvs_generate_messages_nodejs/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
-.PHONY : std_srvs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_nodejs
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_nodejs
-.PHONY : dynamic_reconfigure_generate_messages_nodejs
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_nodejs/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named enph353_gazebo_generate_messages_cpp
-
-# Build rule for target.
-enph353_gazebo_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_generate_messages_cpp
-.PHONY : enph353_gazebo_generate_messages_cpp
-
-# fast build rule for target.
-enph353_gazebo_generate_messages_cpp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/build
-.PHONY : enph353_gazebo_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_eus
-
-# Build rule for target.
-std_srvs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_eus
-.PHONY : std_srvs_generate_messages_eus
-
-# fast build rule for target.
-std_srvs_generate_messages_eus/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/build
-.PHONY : std_srvs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_lisp
-
-# Build rule for target.
-std_srvs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_lisp
-.PHONY : std_srvs_generate_messages_lisp
-
-# fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_lisp
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_lisp
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named enph353_gazebo_generate_messages_py
-
-# Build rule for target.
-enph353_gazebo_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_generate_messages_py
-.PHONY : enph353_gazebo_generate_messages_py
-
-# fast build rule for target.
-enph353_gazebo_generate_messages_py/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/build
-.PHONY : enph353_gazebo_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_lisp
-
-# Build rule for target.
-trajectory_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_lisp
-.PHONY : trajectory_msgs_generate_messages_lisp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
-.PHONY : trajectory_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_eus
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_eus
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
+enph353_gazebo_geneus/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_geneus.dir/build
+.PHONY : enph353_gazebo_geneus/fast
 
 #=============================================================================
 # Target rules for targets named dynamic_reconfigure_gencfg
@@ -1273,134 +1208,30 @@ dynamic_reconfigure_gencfg/fast:
 .PHONY : dynamic_reconfigure_gencfg/fast
 
 #=============================================================================
-# Target rules for targets named tf_generate_messages_nodejs
+# Target rules for targets named dynamic_reconfigure_generate_messages_eus
 
 # Build rule for target.
-tf_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_nodejs
-.PHONY : tf_generate_messages_nodejs
+dynamic_reconfigure_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_eus
+.PHONY : dynamic_reconfigure_generate_messages_eus
 
 # fast build rule for target.
-tf_generate_messages_nodejs/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/build
-.PHONY : tf_generate_messages_nodejs/fast
+dynamic_reconfigure_generate_messages_eus/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named gazebo_msgs_generate_messages_cpp
+# Target rules for targets named gazebo_ros_gencfg
 
 # Build rule for target.
-gazebo_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_cpp
-.PHONY : gazebo_msgs_generate_messages_cpp
+gazebo_ros_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_gencfg
+.PHONY : gazebo_ros_gencfg
 
 # fast build rule for target.
-gazebo_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build
-.PHONY : gazebo_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named gazebo_msgs_generate_messages_eus
-
-# Build rule for target.
-gazebo_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_eus
-.PHONY : gazebo_msgs_generate_messages_eus
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_eus/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build
-.PHONY : gazebo_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_cpp
-
-# Build rule for target.
-trajectory_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_cpp
-.PHONY : trajectory_msgs_generate_messages_cpp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
-.PHONY : trajectory_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named gazebo_msgs_generate_messages_lisp
-
-# Build rule for target.
-gazebo_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_lisp
-.PHONY : gazebo_msgs_generate_messages_lisp
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build
-.PHONY : gazebo_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_eus
-
-# Build rule for target.
-trajectory_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_eus
-.PHONY : trajectory_msgs_generate_messages_eus
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_eus/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
-.PHONY : trajectory_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named gazebo_msgs_generate_messages_nodejs
-
-# Build rule for target.
-gazebo_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_nodejs
-.PHONY : gazebo_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build
-.PHONY : gazebo_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_nodejs
-
-# Build rule for target.
-trajectory_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_nodejs
-.PHONY : trajectory_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named enph353_gazebo_genpy
-
-# Build rule for target.
-enph353_gazebo_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_genpy
-.PHONY : enph353_gazebo_genpy
-
-# fast build rule for target.
-enph353_gazebo_genpy/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/build
-.PHONY : enph353_gazebo_genpy/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_py
-
-# Build rule for target.
-trajectory_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_py
-.PHONY : trajectory_msgs_generate_messages_py
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_py/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
-.PHONY : trajectory_msgs_generate_messages_py/fast
+gazebo_ros_gencfg/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build
+.PHONY : gazebo_ros_gencfg/fast
 
 #=============================================================================
 # Target rules for targets named dynamic_reconfigure_generate_messages_py
@@ -1429,6 +1260,97 @@ enph353_gazebo_generate_messages/fast:
 .PHONY : enph353_gazebo_generate_messages/fast
 
 #=============================================================================
+# Target rules for targets named tf_generate_messages_py
+
+# Build rule for target.
+tf_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_py
+.PHONY : tf_generate_messages_py
+
+# fast build rule for target.
+tf_generate_messages_py/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_py.dir/build
+.PHONY : tf_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named enph353_gazebo_generate_messages_eus
+
+# Build rule for target.
+enph353_gazebo_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_generate_messages_eus
+.PHONY : enph353_gazebo_generate_messages_eus
+
+# fast build rule for target.
+enph353_gazebo_generate_messages_eus/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_eus.dir/build
+.PHONY : enph353_gazebo_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_nodejs
+
+# Build rule for target.
+tf_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_nodejs
+.PHONY : tf_generate_messages_nodejs
+
+# fast build rule for target.
+tf_generate_messages_nodejs/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/build
+.PHONY : tf_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named enph353_gazebo_generate_messages_py
+
+# Build rule for target.
+enph353_gazebo_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_generate_messages_py
+.PHONY : enph353_gazebo_generate_messages_py
+
+# fast build rule for target.
+enph353_gazebo_generate_messages_py/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_py.dir/build
+.PHONY : enph353_gazebo_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_nodejs
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_nodejs
+.PHONY : dynamic_reconfigure_generate_messages_nodejs
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_nodejs/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_cpp
+
+# Build rule for target.
+tf_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_cpp
+.PHONY : tf_generate_messages_cpp
+
+# fast build rule for target.
+tf_generate_messages_cpp/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/build
+.PHONY : tf_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named collision_plugin
+
+# Build rule for target.
+collision_plugin: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 collision_plugin
+.PHONY : collision_plugin
+
+# fast build rule for target.
+collision_plugin/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/collision_plugin.dir/build
+.PHONY : collision_plugin/fast
+
+#=============================================================================
 # Target rules for targets named _enph353_gazebo_generate_messages_check_deps_SubmitPlate
 
 # Build rule for target.
@@ -1455,32 +1377,6 @@ tf_generate_messages_eus/fast:
 .PHONY : tf_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named std_srvs_generate_messages_cpp
-
-# Build rule for target.
-std_srvs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_cpp
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named gazebo_msgs_generate_messages_py
-
-# Build rule for target.
-gazebo_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_py
-.PHONY : gazebo_msgs_generate_messages_py
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_py/fast:
-	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build
-.PHONY : gazebo_msgs_generate_messages_py/fast
-
-#=============================================================================
 # Target rules for targets named _enph353_gazebo_generate_messages_check_deps_GetLegalPlates
 
 # Build rule for target.
@@ -1492,6 +1388,110 @@ _enph353_gazebo_generate_messages_check_deps_GetLegalPlates: cmake_check_build_s
 _enph353_gazebo_generate_messages_check_deps_GetLegalPlates/fast:
 	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/_enph353_gazebo_generate_messages_check_deps_GetLegalPlates.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/_enph353_gazebo_generate_messages_check_deps_GetLegalPlates.dir/build
 .PHONY : _enph353_gazebo_generate_messages_check_deps_GetLegalPlates/fast
+
+#=============================================================================
+# Target rules for targets named enph353_gazebo_generate_messages_cpp
+
+# Build rule for target.
+enph353_gazebo_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_generate_messages_cpp
+.PHONY : enph353_gazebo_generate_messages_cpp
+
+# fast build rule for target.
+enph353_gazebo_generate_messages_cpp/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_cpp.dir/build
+.PHONY : enph353_gazebo_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named enph353_gazebo_genpy
+
+# Build rule for target.
+enph353_gazebo_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_genpy
+.PHONY : enph353_gazebo_genpy
+
+# fast build rule for target.
+enph353_gazebo_genpy/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genpy.dir/build
+.PHONY : enph353_gazebo_genpy/fast
+
+#=============================================================================
+# Target rules for targets named enph353_gazebo_genlisp
+
+# Build rule for target.
+enph353_gazebo_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_genlisp
+.PHONY : enph353_gazebo_genlisp
+
+# fast build rule for target.
+enph353_gazebo_genlisp/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_genlisp.dir/build
+.PHONY : enph353_gazebo_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named enph353_gazebo_generate_messages_lisp
+
+# Build rule for target.
+enph353_gazebo_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_generate_messages_lisp
+.PHONY : enph353_gazebo_generate_messages_lisp
+
+# fast build rule for target.
+enph353_gazebo_generate_messages_lisp/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_lisp.dir/build
+.PHONY : enph353_gazebo_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named enph353_gazebo_generate_messages_nodejs
+
+# Build rule for target.
+enph353_gazebo_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_generate_messages_nodejs
+.PHONY : enph353_gazebo_generate_messages_nodejs
+
+# fast build rule for target.
+enph353_gazebo_generate_messages_nodejs/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_generate_messages_nodejs.dir/build
+.PHONY : enph353_gazebo_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named enph353_gazebo_gennodejs
+
+# Build rule for target.
+enph353_gazebo_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 enph353_gazebo_gennodejs
+.PHONY : enph353_gazebo_gennodejs
+
+# fast build rule for target.
+enph353_gazebo_gennodejs/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/enph353_gazebo_gennodejs.dir/build
+.PHONY : enph353_gazebo_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_cpp
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_cpp
+.PHONY : dynamic_reconfigure_generate_messages_cpp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_cpp/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_lisp
+
+# Build rule for target.
+tf_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_lisp
+.PHONY : tf_generate_messages_lisp
+
+# fast build rule for target.
+tf_generate_messages_lisp/fast:
+	$(MAKE) -f 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/build.make 2025_competition/enph353/enph353_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/build
+.PHONY : tf_generate_messages_lisp/fast
 
 # Help Target
 help:
@@ -1542,11 +1542,26 @@ help:
 	@echo "... enph353_utils_generate_messages_nodejs"
 	@echo "... enph353_utils_gennodejs"
 	@echo "... enph353_utils_generate_messages_py"
-	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... sensor_msgs_generate_messages_nodejs"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_eus"
+	@echo "... std_srvs_generate_messages_py"
+	@echo "... std_srvs_generate_messages_lisp"
+	@echo "... std_srvs_generate_messages_eus"
+	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_cpp"
+	@echo "... sensor_msgs_generate_messages_eus"
+	@echo "... gazebo_msgs_generate_messages_cpp"
+	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... sensor_msgs_generate_messages_lisp"
+	@echo "... sensor_msgs_generate_messages_nodejs"
+	@echo "... sensor_msgs_generate_messages_py"
+	@echo "... trajectory_msgs_generate_messages_nodejs"
+	@echo "... gazebo_msgs_generate_messages_lisp"
+	@echo "... trajectory_msgs_generate_messages_cpp"
+	@echo "... gazebo_msgs_generate_messages_eus"
+	@echo "... gazebo_msgs_generate_messages_nodejs"
+	@echo "... gazebo_msgs_generate_messages_py"
+	@echo "... std_srvs_generate_messages_nodejs"
+	@echo "... trajectory_msgs_generate_messages_eus"
+	@echo "... trajectory_msgs_generate_messages_lisp"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... actionlib_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_py"
@@ -1567,47 +1582,32 @@ help:
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... collision_plugin"
-	@echo "... enph353_gazebo_gennodejs"
-	@echo "... enph353_gazebo_generate_messages_nodejs"
-	@echo "... enph353_gazebo_genlisp"
-	@echo "... enph353_gazebo_generate_messages_lisp"
-	@echo "... enph353_gazebo_geneus"
-	@echo "... enph353_gazebo_generate_messages_eus"
-	@echo "... enph353_gazebo_gencpp"
-	@echo "... tf_generate_messages_py"
-	@echo "... tf_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... tf_generate_messages_cpp"
-	@echo "... std_srvs_generate_messages_py"
-	@echo "... gazebo_ros_gencfg"
-	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... dynamic_reconfigure_generate_messages_nodejs"
-	@echo "... enph353_gazebo_generate_messages_cpp"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_lisp"
 	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... enph353_gazebo_generate_messages_py"
-	@echo "... trajectory_msgs_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
+	@echo "... enph353_gazebo_gencpp"
+	@echo "... enph353_gazebo_geneus"
 	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... tf_generate_messages_nodejs"
-	@echo "... gazebo_msgs_generate_messages_cpp"
-	@echo "... gazebo_msgs_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_cpp"
-	@echo "... gazebo_msgs_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_eus"
-	@echo "... gazebo_msgs_generate_messages_nodejs"
-	@echo "... trajectory_msgs_generate_messages_nodejs"
-	@echo "... enph353_gazebo_genpy"
-	@echo "... trajectory_msgs_generate_messages_py"
+	@echo "... dynamic_reconfigure_generate_messages_eus"
+	@echo "... gazebo_ros_gencfg"
 	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... enph353_gazebo_generate_messages"
+	@echo "... tf_generate_messages_py"
+	@echo "... enph353_gazebo_generate_messages_eus"
+	@echo "... tf_generate_messages_nodejs"
+	@echo "... enph353_gazebo_generate_messages_py"
+	@echo "... dynamic_reconfigure_generate_messages_nodejs"
+	@echo "... tf_generate_messages_cpp"
+	@echo "... collision_plugin"
 	@echo "... _enph353_gazebo_generate_messages_check_deps_SubmitPlate"
 	@echo "... tf_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... gazebo_msgs_generate_messages_py"
 	@echo "... _enph353_gazebo_generate_messages_check_deps_GetLegalPlates"
+	@echo "... enph353_gazebo_generate_messages_cpp"
+	@echo "... enph353_gazebo_genpy"
+	@echo "... enph353_gazebo_genlisp"
+	@echo "... enph353_gazebo_generate_messages_lisp"
+	@echo "... enph353_gazebo_generate_messages_nodejs"
+	@echo "... enph353_gazebo_gennodejs"
+	@echo "... dynamic_reconfigure_generate_messages_cpp"
+	@echo "... tf_generate_messages_lisp"
 .PHONY : help
 
 

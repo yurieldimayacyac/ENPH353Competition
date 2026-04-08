@@ -1,93 +1,68 @@
 #!/usr/bin/env python3
-
 import rospy
-from geometry_msgs.msg import Twist
-from std_msgs.msg import String
-import time
+import cv2
+from gazebo_msgs.msg import ModelState
+from gazebo_msgs.srv import SetModelState
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 
-class SherROS_Holmes:
+from driver import RobotDriver
+from robot_utils import spawn_position
+from clue_node import ClueNode
+
+class FizzDetectiveController:
+    # Class Attributes
+    startcoords = [5.5, 2.498, 0.1, 0, 0, -0.707, 0.707]
+
     def __init__(self):
-        rospy.init_node('fizz_detective_node')
-        self.cmd_pub = rospy.Publisher('/B1/cmd_vel', Twist, queue_size = 1)
-        self.score_pub = rospy.Publisher('/score_tracker', String, queue_size = 1)
-
-        while self.cmd_pub.get_num_connections() < 1 or self.score_pub.get_num_connections() < 1:
-            if rospy.is_shutdown(): # return immediately if ROS isn't even operating
-                return
-            rospy.loginfo("Waiting for simulation and tracker to connect")
-            rospy.sleep(0.5)
-
         self.bridge = CvBridge()
-        self.image_sub = rospy.Subscriber("/B1/rrbot/camera1/image_raw",Image, self.camera_callback)
-
-        self.latest_frame = None
+        self.driver = RobotDriver(kp=0.02, ki=0.00001, kd = 0.005, target_v=0.3)
+        self.ready = False
+        self.clue_detector = ClueNode() # Initialize the clue detector
+        self.at_clue_board = False 
         
-        rospy.loginfo("Waiting for camera feed")
-        while self.latest_frame is None and not rospy.is_shutdown():
-            rospy.sleep(0.1)
+        # Subscriber (Ensure the topic matches your Gazebo robot)
+        self.sub = rospy.Subscriber('/B1/rrbot/camera1/image_raw', Image, self.process_frame)
 
-        rospy.loginfo("Ready to Start Simulation")
-        time.sleep(1)
-        self.clue_found = False
-        self.time_trials = False
-        time.sleep(1)
+    def check_for_hazards(self, frame):
+        # Your YOLO logic goes here
+        return False
 
-    def move(self):
+    def process_frame(self, msg):
+        if not self.ready:
+            rospy.loginfo("Controller is not ready. Waiting to process frames.")
+            return 
 
-        # start timer
-        sim_time = 5
-        self.score_pub.publish("Team14,sherrosholmes14,0,NA")
-        rospy.loginfo("Robot Started!")
-
-        # start moving forward
-        move_cmd = Twist() # create instance of Twist message
-        move_cmd.linear.x = 0.5 # (0.5 m/s)
-
-        rate = rospy.Rate(20)
-
-        start_time = rospy.get_time()
-        rospy.sleep(0.1)
-        while rospy.get_time() - start_time < sim_time and not rospy.is_shutdown():
-            if self.cmd_pub.get_num_connections() > 0:
-                self.cmd_pub.publish(move_cmd)
-            else:
-                rospy.logwarn("no one listening! holding position")
-            rate.sleep()
-
-        # stop robot
-        self.cmd_pub.publish(Twist()) # publish to /B1/cmd_vel (then to Gazebo)
-        time.sleep(0.1) # give ROS time to send 0 velocity
-        self.score_pub.publish("Team14,sherrosholmes14,-1,NA")
-        rospy.loginfo("Robot Stopped!")
-
-    def camera_callback(self,data):
-
-        ## TODO: potentially something in here that calls stop() if 'clue' found
         try:
-            cv_image = self.bridge.imgmsg_to_cv2(data, "bgr8")
-            self.latest_frame = cv_image
+            frame = self.bridge.imgmsg_to_cv2(msg, "bgr8")
+        except:
+            return
 
-            import cv2
+        # Hazard Detection
+        hazard_detected = self.check_for_hazards(frame)
+        
+        # Inside process_frame
+        #self.driver.update_drive(frame, thresh_low=170,thresh_high=255, hazard_detected=False)
 
-            cv2.namedWindow("Vision", cv2.WINDOW_NORMAL)
-            cv2.moveWindow("Vision", 500, 100)
-
-            cv2.imshow("Vision", cv_image)
-            cv2.waitKey(1)
-            
-        except Exception as e:
-            print(e)
+    def run(self):
+        rate = rospy.Rate(10)
+        while not rospy.is_shutdown():
+            rate.sleep()
 
 if __name__ == '__main__':
     try:
-        detective = SherROS_Holmes()
-        detective.move()
+        rospy.init_node('fizz_detective')
+        controller = FizzDetectiveController()
+        
+        # Reset position FIRST
+        spawn_position(controller.startcoords)
+        
+        # Indicate ready to process frames
+        controller.ready = True
+
+        rospy.loginfo("FizzDetectiveController is now running. Clue Detection running in background")
+        
+        rospy.spin()
+        
     except rospy.ROSInterruptException:
         pass
-
-
-    
-
-        

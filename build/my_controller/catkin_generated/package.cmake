@@ -1,6 +1,6 @@
 set(_CATKIN_CURRENT_PACKAGE "my_controller")
-set(my_controller_VERSION "0.0.0")
-set(my_controller_MAINTAINER "fizzer <fizzer@todo.todo>")
+set(my_controller_VERSION "1.0.0")
+set(my_controller_MAINTAINER "Yuriel Dimayacyac <yuriel@student.ubc.ca>")
 set(my_controller_PACKAGE_FORMAT "2")
 set(my_controller_BUILD_DEPENDS "geometry_msgs" "rospy" "sensor_msgs" "std_msgs")
 set(my_controller_BUILD_EXPORT_DEPENDS "geometry_msgs" "rospy" "sensor_msgs" "std_msgs")

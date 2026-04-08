@@ -12,6 +12,14 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   sensor_msgs
   std_msgs
+  cv_bridge
+  gazebo_msgs
+)
+
+# Install python scripts
+install(PROGRAMS
+  src/clue_node.py
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 ## System dependencies are found with CMake's conventions
