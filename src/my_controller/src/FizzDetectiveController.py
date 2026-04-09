@@ -64,7 +64,7 @@ class FizzDetectiveController:
         hazard_detected = self.check_for_hazards(frame)
         
         # Inside process_frame
-        #self.driver.update_drive(frame, thresh_low=170,thresh_high=255, hazard_detected=False)
+        self.driver.update_drive(frame, thresh_low=170,thresh_high=255, hazard_detected=False)
 
     def run(self):
         rate = rospy.Rate(10)
