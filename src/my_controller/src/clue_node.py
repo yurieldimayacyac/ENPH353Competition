@@ -25,15 +25,15 @@ class ClueNode:
         self.model.eval()
 
         self.sub = rospy.Subscriber('/B1/rrbot/camera1/image_raw', Image, self.process_frame, queue_size=1, buff_size=2**24)
-        self.pub = rospy.Publisher('/detected_clue', String, queue_size=10) # publish to topic /detected_clue
         self.debug_pub = rospy.Publisher('/debug_clue', Image, queue_size=1) # publish to topic /debug_clue
+        self.type_pub = rospy.Publisher('/clue_type', String, queue_size=1)
+        self.val_pub = rospy.Publisher('/clue_value', String, queue_size=1)
 
         self.frame_counter = 0
 
     def process_frame(self, msg):
         self.frame_counter += 1
         if self.frame_counter % 20 != 0:  # Process every 20th frame
-            self.debug_pub.publish(msg)  # Still publish the raw frame for debugging
             return
         
         try: 
@@ -45,17 +45,13 @@ class ClueNode:
         found, img, board_cont, mask, (x1,y1), blue_pixel_count = self.hsv_filter(frame)
         hud_img = frame.copy()
 
-        if found:
+        if found and blue_pixel_count > 45000:
             # Change Coordinates back to Uncropped Coordinates for HUD
             display_cnt = board_cont.copy()
             display_cnt[:, :, 0] += x1  
             display_cnt[:, :, 1] += y1
 
             cv2.drawContours(hud_img, [display_cnt], -1, (0,255,0), 2) # draw detected contour on HUD
-
-            if blue_pixel_count < 45000:
-                return
-
             M = cv2.moments(board_cont)
 
             if M["m00"] != 0:
@@ -72,28 +68,32 @@ class ClueNode:
             new_img = self.straighten_board_geom(img, board_cont)
 
             if new_img is not None:
+                pred_type, pred_val = self.character_split(new_img)
 
-                pred_string = self.character_split(new_img)
+                valid_string = False
 
-                if pred_string:
-                    
-                    # Check if Valid String
-                    if len(pred_string) >= 13 or len(pred_string) < 5:
-                        self.pub.publish(String(data="")) # Publish empty string to indicate invalid read
-                        cv2.putText(hud_img, f"READ: {pred_string} (INVALID)", (170, 80), 
-                                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-                    else: 
-                        self.pub.publish(String(data=pred_string))
-                        cv2.putText(hud_img, f"READ: {pred_string}", (170, 80), 
-                                    cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
-                        #self.debug_pub.publish(self.bridge.cv2_to_imgmsg(hud_img, "bgr8"))
+                for pred_string in [pred_type, pred_val]:
+                    if 4 <= len(pred_string) < 13:
+                        valid_string = True
+
+                if valid_string:
+                    self.type_pub.publish(String(data="")) # Publish empty string to indicate invalid read
+                    self.val_pub.publish(String(data="")) # Publish empty string to indicate invalid read
+
+                    self.type_pub.publish(String(data=pred_type))
+                    self.val_pub.publish(String(data=pred_val))
+                    cv2.putText(hud_img, f"READ: {pred_string}", (170, 80), 
+                                cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
+
+                self.debug_pub.publish(self.bridge.cv2_to_imgmsg(hud_img, "bgr8"))
+
 
             else: 
                 rospy.logwarn("Phase 2 Failed: Could not find 4 corners")
+
+
         #else:
             # self.debug_pub.publish(msg)
-        self.debug_pub.publish(self.bridge.cv2_to_imgmsg(hud_img, "bgr8"))
-
 
     def character_split(self, warped_board):
         target_height, target_width = warped_board.shape[:2]
@@ -104,9 +104,11 @@ class ClueNode:
         bottom_half = img_gray[(target_height//2) + 10 : target_height, :]
 
         halves = [top_half, bottom_half]
-        char_images_list = []
 
-        for zone_img in halves:
+        half_images = [[], []]
+        half_layouts = [[], []]
+
+        for string_ind, zone_img in enumerate(halves):
             blurred = cv2.GaussianBlur(zone_img, (3, 3), 0)
             _, thresh = cv2.threshold(blurred, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
 
@@ -115,7 +117,6 @@ class ClueNode:
             # Value Setup for Space Detection
             space_thresh = 20
             last_x_end = None
-            character_layout = []
 
             # Sort characters left-to-right
             contours = sorted(contours, key=lambda ctr: cv2.boundingRect(ctr)[0])
@@ -131,7 +132,7 @@ class ClueNode:
                     if last_x_end is not None:
                         gap = x - last_x_end
                         if gap > space_thresh:
-                            character_layout.append("SPACE")
+                            half_layouts[string_ind].append("SPACE")
 
                     last_x_end = x + w
 
@@ -149,27 +150,40 @@ class ClueNode:
                     # Normalize to (-1.0, 1.0)
                     img_float = letter_resize.astype(np.float32) / 255.0
                     img_final = (img_float - 0.5) / 0.5
-                    char_images_list.append(img_final)
+                    half_images[string_ind].append(img_final)
 
                     # Add "CHAR" to character layout
-                    character_layout.append("CHAR")
+                    half_layouts[string_ind].append("CHAR")
 
             last_x_end = None  # reset for next half
 
-        if len(char_images_list) > 0:
-            # Prepare batch for Torch
-            batch_tensor = torch.tensor(np.array(char_images_list)).unsqueeze(1).to(self.device)
-            
-            with torch.no_grad():
-                output = self.model(batch_tensor)
-                predictions = torch.argmax(output, dim=1)
+        final_strings = ["",""]
 
-            detected_string = "".join([self.alphabet[p] for p in predictions])
-            return detected_string
+        for half in range(2):
+            if len(half_images[half]) > 0:
+                # Prepare batch for Torch
+                batch_tensor = torch.tensor(np.array(half_images[half])).unsqueeze(1).to(self.device)
+
+                with torch.no_grad():
+                    output = self.model(batch_tensor)
+                    predictions = torch.argmax(output, dim=1)
+
+                char_index = 0
+                detected_string = ""
+
+                for character in half_layouts[half]:
+                    if character == "SPACE":
+                        detected_string += " "
+                    elif character == "CHAR" and char_index < len(predictions):
+                        detected_string += self.alphabet[predictions[char_index].item()]
+                        char_index += 1
+
+                final_strings[half] = detected_string
+
+        return final_strings[0], final_strings[1]
         
-        return ""
-
     def hsv_filter(self, cv2_image):
+        x1, y1 = 0, 0
         blue_pixel_thresh = 10000
         blue_board_found = False
         crop_img = None
@@ -209,7 +223,7 @@ class ClueNode:
             blue_board_found = True
         else: 
             blue_board_found = False
-            print("No Blue Border Detected")
+            #print("No Blue Border Detected")
 
         return blue_board_found, crop_img, local_cnt, mask, (x1,y1), blue_pixel_count
 
