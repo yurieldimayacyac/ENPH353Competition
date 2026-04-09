@@ -20,6 +20,7 @@ class CompetitionGui:
         self.root.configure(bg="#2c3e50")
         self.root.geometry("1400x800") # Set window size
         self.start_coords = FizzDetectiveController.startcoords # Access class attribute for start coordinates
+        self.clue_history = []
 
         self.video_window = tk.Frame(self.root)
         self.video_window.pack(pady=10, fill='x')
@@ -61,18 +62,34 @@ class CompetitionGui:
 
         # Coordinates for the 8 boards
         clue_coords = {
-            "Board 1": [5.5, 2.1, 0, 0, 0, 0, 1],
-            "Board 2": [-3.2, 4.5, 0, 0, 0, 0, 1],
-            "Board 3": [-6.1, 1.2, 0, 0, 0, 0, 1],
-            "Board 4": [-2.0, -4.5, 0, 0, 0, 0, 1],
-            "Board 5": [4.0, -6.1, 0, 0, 0, 0, 1],
-            "Board 6": [6.5, -1.0, 0, 0, 0, 0, 1],
-            "Board 7": [0.5, 0.5, 0, 0, 0, 0, 1],
-            "Board 8": [-1.5, 2.5, 0, 0, 0, 0, 1]
+            "Board 1": [5.798047, 1.940394, 0.1, 0, 0, -1.589, 1.589],
+            "Board 2": [5.277280, -1.069720, 0.1, 0, 0, -2.1, 2.1],
+            "Board 3": [4.318, -1.55, 0.1, 0, 0, -0.97, 0.242],
+            "Board 4": [0.615, -0.72, 0.1, 0, 0, -0.2973, -0.954],
+            "Board 5": [0.66, 1.711, 0.1, 0, 0, 0.36, -0.93],
+            "Board 6": [-3.18, 1.5, 0.1, 0, 0, 0.94, 0.34],
+            "Board 7": [-4.08, -1.865, 0.1, 0, 0, -0.035, 0.999],
+            "Board 8": [-1.177, -1.2, 1.85, 0, 0, 0, 1.0]
         }
 
         for i, (name, pose) in enumerate(clue_coords.items()):
             btn = tk.Button(self.teleport_frame, text=name, width=12, bg="#34495e", fg="white",
+                            command=lambda p=pose: spawn_position(p))
+            btn.grid(row=0, column=i, padx=5, pady=10)
+
+        # Teleport to Pink Lines
+        self.pink_line_frame = tk.LabelFrame(self.root, text=" TELEPORT TO PINK LINES ", fg="white", bg="#2c3e50")
+        self.pink_line_frame.pack(pady=10, fill="x", padx=20)
+
+        # Coordinates for your Pink Lines
+        pink_line_coords = {
+            "Pink Line 1": [0.48664, -0.159, 0.2, 0, 0, 0, 1.0],
+            "Pink Line 2": [-3.82, 0.49, 0.2, 0, 0, 0, -1.02],
+            "Pink Line 3": [-4.14, -2.31, 0.2, 0, 0, 0, 1.0]
+        }
+
+        for i, (name, pose) in enumerate(pink_line_coords.items()):
+            btn = tk.Button(self.pink_line_frame, text=name, width=12, bg="#9b59b6", fg="white",
                             command=lambda p=pose: spawn_position(p))
             btn.grid(row=0, column=i, padx=5, pady=10)
 
@@ -158,15 +175,17 @@ class CompetitionGui:
         
         self.clue_label.config(text=f"CLUE TYPE: {detected_string}")
         
-        rospy.loginfo(f"GUI updated with clue type: {detected_string}")
-
     def update_clue_val(self, msg):
         detected_string = msg.data
+
+        if detected_string in self.clue_history:
+            return
+
         self.clue_label.config(text=f"CLUE VALUE: {detected_string}")
-        
         # Add to the visual log so you can see a history of found clues
         self.add_to_log(f"Found Value: {detected_string}")
-        rospy.loginfo(f"GUI updated with clue value: {detected_string}")
+
+        self.clue_history.append(detected_string) # Keep track of found clues to prevent duplicates
 
     def run(self):
         self.root.mainloop()

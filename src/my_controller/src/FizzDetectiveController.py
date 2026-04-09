@@ -24,17 +24,17 @@ class FizzDetectiveController:
         self.bridge = CvBridge()
         self.driver = RobotDriver(kp=0.02, ki=0.00001, kd = 0.005, target_v=0.3)
         self.ready = False
+        self.gui_active = False
         self.clue_detector = ClueNode() # Initialize the clue detector
         self.at_clue_board = False 
-        self.start = False
-        self.submission_history = {}
+        self.submission_history = []
         
         # Subscriber (Ensure the topic matches your Gazebo robot)
         self.sub = rospy.Subscriber('/B1/rrbot/camera1/image_raw', Image, self.process_frame)
         self.clue_type = rospy.Subscriber('/clue_type', String, self.clueboard_type)
         self.clue_value = rospy.Subscriber('/clue_value', String, self.clueboard_value)
         self.score_pub = rospy.Publisher('/score_tracker', String, queue_size=1)
-        self.start = rospy.Subscriber('/gui_ready', String, self.set_ready) # Subscribe to GUI ready signal
+        self.start_gui = rospy.Subscriber('/gui_ready', String, self.set_ready) # Subscribe to GUI ready signal
         rospy.sleep(1) # ensure publishers and subscribers are set up before processing frames
 
         # Initializing Clue Board Type/Value
@@ -44,7 +44,7 @@ class FizzDetectiveController:
 
     def set_ready(self, msg):
         if msg.data == "GUI_READY":
-            self.start = True
+            self.gui_active = True
             rospy.loginfo("Received GUI_READY signal. Controller is now ready to process frames.")
 
     def check_for_hazards(self, frame):
@@ -61,10 +61,10 @@ class FizzDetectiveController:
             return
 
         # Hazard Detection
-        hazard_detected = self.check_for_hazards(frame)
+        #hazard_detected = self.check_for_hazards(frame)
         
         # Inside process_frame
-        self.driver.update_drive(frame, thresh_low=170,thresh_high=255, hazard_detected=False)
+        #self.driver.update_drive(frame, thresh_low=170,thresh_high=255, hazard_detected=False)
 
     def run(self):
         rate = rospy.Rate(10)
@@ -96,29 +96,31 @@ class FizzDetectiveController:
             self.current_location_id = 0
             return
 
-        self.attempt_submission()
+        if self.current_location_id != 0:
+            self.attempt_submission()
 
     def clueboard_value(self, msg):
         self.latest_value = msg.data
+        
         self.attempt_submission()
 
     def attempt_submission(self):
-        if self.start and self.latest_type and self.latest_value:
+        if self.current_location_id in self.submission_history:
+            return
+        if self.gui_active and self.latest_type and self.latest_value and (1 <= self.current_location_id <= 8):
             rospy.loginfo(f"Pair complete! Submitting {self.latest_type}: {self.latest_value}")
             
             self.submit_clue(self.current_location_id, self.latest_value)
             
             # Reset for next clue
+            self.submission_history.append(self.current_location_id) 
+
             self.latest_type = None
             self.latest_value = None
             self.current_location_id = 0
 
     def submit_clue(self, location_id, prediction):
         formatted_prediction = prediction.replace(" ", "").upper()
-
-        # Do nothing if already logged this clue for this location
-        if location_id in self.submission_history and self.submission_history[location_id] == formatted_prediction:
-            return
         
         team_id = "Team_14"
         password = "YURIEL"
@@ -126,7 +128,6 @@ class FizzDetectiveController:
         score_msg = f"{team_id},{password},{location_id},{formatted_prediction}"
         self.score_pub.publish(String(data=score_msg))
         rospy.loginfo(f"Submitted clue: {score_msg}")
-        self.submission_history[location_id] = formatted_prediction
 
 if __name__ == '__main__':
     try:
