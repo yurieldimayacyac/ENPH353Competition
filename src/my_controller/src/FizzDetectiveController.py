@@ -27,7 +27,7 @@ class FizzDetectiveController:
         self.gui_active = False
         self.clue_detector = ClueNode() # Initialize the clue detector
         self.at_clue_board = False 
-        self.submission_history = []
+        self.submission_history = {}
         
         # Subscriber (Ensure the topic matches your Gazebo robot)
         self.sub = rospy.Subscriber('/B1/rrbot/camera1/image_raw', Image, self.process_frame)
@@ -105,15 +105,23 @@ class FizzDetectiveController:
         self.attempt_submission()
 
     def attempt_submission(self):
+
+        if self.latest_value is None:
+            return
+        
         if self.current_location_id in self.submission_history:
             return
+        
+        if self.latest_value.upper() in self.submission_history.values():
+            return
+        
         if self.gui_active and self.latest_type and self.latest_value and (1 <= self.current_location_id <= 8):
-            rospy.loginfo(f"Pair complete! Submitting {self.latest_type}: {self.latest_value}")
+            rospy.loginfo(f"Pair complete, submitting {self.latest_type}: {self.latest_value}")
+
+            self.submission_history[self.current_location_id] = self.latest_value.upper()
+
             
             self.submit_clue(self.current_location_id, self.latest_value)
-            
-            # Reset for next clue
-            self.submission_history.append(self.current_location_id) 
 
             self.latest_type = None
             self.latest_value = None
@@ -121,7 +129,7 @@ class FizzDetectiveController:
 
     def submit_clue(self, location_id, prediction):
         formatted_prediction = prediction.replace(" ", "").upper()
-        
+
         team_id = "Team_14"
         password = "YURIEL"
         clue_message = f"{team_id} detected clue at Location {location_id}: {formatted_prediction}"
