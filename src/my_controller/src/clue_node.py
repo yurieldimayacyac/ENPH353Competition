@@ -87,19 +87,14 @@ class ClueNode:
 
                 self.debug_pub.publish(self.bridge.cv2_to_imgmsg(hud_img, "bgr8"))
 
-
             else: 
                 rospy.logwarn("Phase 2 Failed: Could not find 4 corners")
-
-
-        #else:
-            # self.debug_pub.publish(msg)
 
     def character_split(self, warped_board):
         target_height, target_width = warped_board.shape[:2]
         img_gray = cv2.cvtColor(warped_board, cv2.COLOR_BGR2GRAY)
 
-        # Split into Top and Bottom (exactly as in your notebook)
+        # Split into Top and Bottom
         top_half = img_gray[0 : (target_height//2) - 10, :]
         bottom_half = img_gray[(target_height//2) + 10 : target_height, :]
 
@@ -198,7 +193,6 @@ class ClueNode:
 
         mask = cv2.inRange(hsv_img, lower_blue, upper_blue)
         blue_pixel_count = np.sum(mask == 255)
-        #print(f"Blue Pixels: {blue_pixel_count}")
 
         contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
@@ -223,12 +217,11 @@ class ClueNode:
             blue_board_found = True
         else: 
             blue_board_found = False
-            #print("No Blue Border Detected")
 
         return blue_board_found, crop_img, local_cnt, mask, (x1,y1), blue_pixel_count
 
     def straighten_board_geom(self, crop_img, roi_contour):
-        # Simplify the contour to find the 4 corners
+        # Simplify contour to find 4 corners
         # 0.02 precision factor for finding corners
         peri = cv2.arcLength(roi_contour, True)
         approx = cv2.approxPolyDP(roi_contour, 0.02 * peri, True)

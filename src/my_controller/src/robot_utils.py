@@ -4,7 +4,6 @@ import rospy
 from gazebo_msgs.srv import SetModelState
 from gazebo_msgs.msg import ModelState
 
-
 def spawn_position(coords):
     rospy.wait_for_service('/gazebo/set_model_state')
     try:

@@ -40,15 +40,15 @@ class CompetitionGui:
         self.view_clue.grid(row=1, column=1, padx=5)  # Image at Row 1
         self.view_clue.grid_propagate(False)
 
-        # Master CONTROLS
+        # Master Controls
         self.master_frame = tk.LabelFrame(self.root, text=" COMPETITION MASTER CONTROL ", fg="white", bg="#2c3e50", font=("Arial", 12, "bold"))
         self.master_frame.pack(pady=10, fill="x", padx=20)
 
-        # Large START Button
+        # Start Button
         tk.Button(self.master_frame, text="▶ START SCOREBOARD", bg="#27ae60", fg="white", font=("Arial", 14, "bold"),
                   command=self.start_competition, width=25).pack(side="left", padx=20, pady=10)
 
-        # Large STOP Button
+        # Stop Button
         tk.Button(self.master_frame, text="■ STOP SCOREBOARD", bg="#c0392b", fg="white", font=("Arial", 14, "bold"),
                   command=self.stop_competition, width=25).pack(side="left", padx=20, pady=10)
 
@@ -64,7 +64,7 @@ class CompetitionGui:
         clue_coords = {
             "Board 1": [5.798047, 1.940394, 0.1, 0, 0, -1.589, 1.589],
             "Board 2": [5.277280, -1.069720, 0.1, 0, 0, -2.1, 2.1],
-            "Board 3": [4.318, -1.55, 0.1, 0, 0, -0.97, 0.242],
+            "Board 3": [4.24, -1.55, 0.1, 0, 0, -0.97, 0.242],
             "Board 4": [0.615, -0.72, 0.1, 0, 0, -0.2973, -0.954],
             "Board 5": [0.66, 1.711, 0.1, 0, 0, 0.36, -0.93],
             "Board 6": [-3.18, 1.5, 0.1, 0, 0, 0.94, 0.34],
@@ -81,7 +81,7 @@ class CompetitionGui:
         self.pink_line_frame = tk.LabelFrame(self.root, text=" TELEPORT TO PINK LINES ", fg="white", bg="#2c3e50")
         self.pink_line_frame.pack(pady=10, fill="x", padx=20)
 
-        # Coordinates for your Pink Lines
+        # Coordinates for Pink Lines
         pink_line_coords = {
             "Pink Line 1": [0.48664, -0.159, 0.2, 0, 0, 0, 1.0],
             "Pink Line 2": [-3.82, 0.49, 0.2, 0, 0, 0, -1.02],
@@ -182,7 +182,7 @@ class CompetitionGui:
             return
 
         self.clue_label.config(text=f"CLUE VALUE: {detected_string}")
-        # Add to the visual log so you can see a history of found clues
+        # Add to visual log
         self.add_to_log(f"Found Value: {detected_string}")
 
         self.clue_history.append(detected_string) # Keep track of found clues to prevent duplicates

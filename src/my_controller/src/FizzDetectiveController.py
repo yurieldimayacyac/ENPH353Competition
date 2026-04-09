@@ -16,10 +16,6 @@ class FizzDetectiveController:
     # Class Attributes
     startcoords = [5.5, 2.498, 0.1, 0, 0, -0.707, 0.707]
 
-    # Team_14,YURIEL,0,NA
-    # Team_14,YURIEL,1,FIVE
-
-
     def __init__(self):
         self.bridge = CvBridge()
         self.driver = RobotDriver(kp=0.02, ki=0.00001, kd = 0.005, target_v=0.3)
@@ -29,7 +25,7 @@ class FizzDetectiveController:
         self.at_clue_board = False 
         self.submission_history = {}
         
-        # Subscriber (Ensure the topic matches your Gazebo robot)
+        # Subscribers and Publishers
         self.sub = rospy.Subscriber('/B1/rrbot/camera1/image_raw', Image, self.process_frame)
         self.clue_type = rospy.Subscriber('/clue_type', String, self.clueboard_type)
         self.clue_value = rospy.Subscriber('/clue_value', String, self.clueboard_value)
@@ -45,7 +41,7 @@ class FizzDetectiveController:
     def set_ready(self, msg):
         if msg.data == "GUI_READY":
             self.gui_active = True
-            rospy.loginfo("Received GUI_READY signal. Controller is now ready to process frames.")
+            rospy.loginfo("Received GUI_READY signal")
 
     def check_for_hazards(self, frame):
         return False
@@ -59,12 +55,6 @@ class FizzDetectiveController:
             frame = self.bridge.imgmsg_to_cv2(msg, "bgr8")
         except:
             return
-
-        # Hazard Detection
-        #hazard_detected = self.check_for_hazards(frame)
-        
-        # Inside process_frame
-        #self.driver.update_drive(frame, thresh_low=170,thresh_high=255, hazard_detected=False)
 
     def run(self):
         rate = rospy.Rate(10)
@@ -105,7 +95,6 @@ class FizzDetectiveController:
         self.attempt_submission()
 
     def attempt_submission(self):
-
         if self.latest_value is None:
             return
         
@@ -142,7 +131,7 @@ if __name__ == '__main__':
         rospy.init_node('fizz_detective')
         controller = FizzDetectiveController()
         
-        # Reset position FIRST
+        # Reset position first
         spawn_position(controller.startcoords)
         
         # Indicate ready to process frames
